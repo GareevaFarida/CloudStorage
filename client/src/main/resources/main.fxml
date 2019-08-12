@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="mainBox" alignment="CENTER" prefHeight="400.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(#fff 0%, #eee 10%, #ddd 90%, #bbb 100%);" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gareeva.cloudStorage.client.MainController">
+
+    <VBox HBox.hgrow="ALWAYS">
+        <HBox VBox.vgrow="ALWAYS">
+            <VBox HBox.hgrow="ALWAYS">
+                <Text text="ЛОКАЛЬНЫЕ ДАННЫЕ" textAlignment="CENTER" wrappingWidth="474.9248046875">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Text>
+                <HBox HBox.hgrow="ALWAYS">
+                    <Button onAction="#pressOnAuth" text="Авторизация" />
+                    <Button onAction="#pressOnUpdateLocalFilesList" text="Обновить список файлов" />
+                    <Button fx:id="btnSendFile" accessibleHelp="Отправить файл на сервер с локального хранилища" onAction="#pressOnSendBtn" text="Отправить" />
+                    <Button accessibleHelp="Удалить файл из локального хранилища" onAction="#pressOnDeleteLocalFileBtn" text="Удалить" />
+                    <!--<Button onAction="#pressOnAddFromLocalRepositoryBtn" text="Добавить с локального репозитория"/>
+                    -->
+
+                </HBox>
+                <ListView fx:id="localFilesList" prefHeight="325.0" prefWidth="321.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+            </VBox>
+
+            <VBox HBox.hgrow="ALWAYS">
+                <Text text="ОБЛАЧНОЕ ХРАНИЛИЩЕ" textAlignment="CENTER" wrappingWidth="345.7294921875">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Text>
+                <HBox>
+                    <Button fx:id="btnUpdateRemoteFileList" onAction="#pressOnUpdateRemoteFilesList" text="Обновить список файлов" />
+                    <Button fx:id="btnDownloadFile" onAction="#pressOnDownloadBtn" text="Скачать" />
+                    <Button fx:id="btnDeleteRemoteFile" onAction="#pressOnDeleteRemoteFileBtn" text="Удалить" />
+
+                </HBox>
+                <ListView fx:id="remoteFilesList" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+            </VBox>
+        </HBox>
+        <Text fx:id="txtLocalMessageStatus" fill="#0e18d6" />
+    </VBox>
+</HBox>
